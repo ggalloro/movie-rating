@@ -49,6 +49,7 @@ def addmovie():
         movie = Movie(title = movie_form.title.data)
         db.session.add(movie)
         db.session.commit()
+        return redirect(url_for('index'))
     return render_template("addmovie.html" , movie_form = movie_form )
 
 if __name__ == '__main__':
