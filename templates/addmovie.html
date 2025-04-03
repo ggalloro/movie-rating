@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Add Movie</title>
+    </head>
+    <body>
+        <h1>Add Movie</h1>
+        <br>
+        <form method="POST">
+            {{ movie_form.secret_tag()}}
+            {{ movie_form.title.label}}
+            {{ movie_form.title.()}}
+            {{ movie_form.title.submit()}}
+        </form>
+    </body>
+</html>
