@@ -35,7 +35,8 @@ class VoteMovie(FlaskForm):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    movies = Movie.query.all()
+    return render_template("index.html", movies = movies)
 
 #@app.route("/movies/<int:id>", methods=["GET","POST"])
 #def movie_id():
