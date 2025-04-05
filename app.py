@@ -38,9 +38,16 @@ def index():
     movies = Movie.query.all()
     return render_template("index.html", movies = movies)
 
-#@app.route("/movies/<int:id>", methods=["GET","POST"])
-#def movie_id():
-#    vote_form = 
+@app.route("/movies/<int:movie_id>", methods=["GET","POST"])
+def movie_id(movie_id):
+    vote_form = VoteMovie()
+    movie = Movie.query.get(movie_id)
+    if vote_form.validate_on_submit():
+        rating = Rating(stars = vote_form.value.data, movie_id=movie_id)
+        db.session.add(movie)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template("movie_detail.html", movie = movie, vote_form = vote_form)
 
 
 @app.route("/addmovie", methods=["GET","POST"])

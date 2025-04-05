@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>{{ movie.title }}</title>
+    </head>
+    <body>
+        <h1>{{ movie.title }}</h1>
+        <br>
+        <form method="POST">
+            {{ vote_form.hidden_tag()}}
+            {{ vote_form.value.label}}
+            {{ vote_form.value() }}
+            {{ vote_form.submit()}}
+        </form>
+    </body>
+</html>

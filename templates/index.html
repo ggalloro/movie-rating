@@ -5,13 +5,14 @@
     <body>
         <h1>Movie Recommender</h1>
         <br>
-        <a href="{{ url_for('addmovie')}}">Add a Movie</a>
-        <br>
+        <h2>Listed Movies</h2>
         <ul>
             {% for movie in movies %}
-            <li>{{ movie.title }}</li>
+            <li><a href="{{url_for('movie_id', movie_id=movie.id)}}">{{ movie.title }}</a></li>
             {% endfor %}  
-        </ul>        
+        </ul>
+        <br>
+          <a href="{{ url_for('addmovie')}}">Add a Movie</a>      
     </body>
 
 
