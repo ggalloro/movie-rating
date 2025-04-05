@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
+from wtforms.validators import NumberRange
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -29,7 +30,7 @@ class SubmitMovie(FlaskForm):
     submit = SubmitField("Add Movie")
 
 class VoteMovie(FlaskForm):
-    value = IntegerField("Rating")
+    value = IntegerField("Rating", validators=[NumberRange(min=1, max=5)])
     submit = SubmitField("Rate Movie")
 
 
